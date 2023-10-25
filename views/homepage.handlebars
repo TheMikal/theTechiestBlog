@@ -1,0 +1,20 @@
+<section class="container">
+    <div class="row homepage-main">
+        {{#each blogPosts as |blogPost|}}
+        <div class="row mb-4 project card text-dark shadow">
+            <div class="card-header">
+            <h3>
+                <a href="/blogPost/{{blogPost.id}}">{{blogPost.title}}</a>
+            </h3>
+            <p>Post made by:
+                {{blogPost.user.name}}
+                on this day in history:
+                {{format_date blogPost.date_created}}</p>
+            </div>
+            <div class="card-body">
+            <p>{{blogPost.description}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
