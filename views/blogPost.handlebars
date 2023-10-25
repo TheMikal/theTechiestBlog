@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="card text-dark shadow mb-3 blogPost-main">
+            <div class="text-center mx-auto p-3">
+                <h2>{{title}}</h2>
+                <p>This post was made by {{user.name}} on the magical day of {{format_date date_created}}</p>
+                <p>{{description}}</p>
+                <button class="btn btn-dark" id="editBtn">Edit</button>
+                <button class="btn btn-dark" id="deleteBtn">Delete</button>
+            </div>
+
+            <div class="text-center">
+                <h3>These users had this to say:</h3>
+                {{#each comments as |comment| }}
+                    <div>
+                        <p>{{comment.comment_body}} by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> comment-form }}
+
+<script src="/js/newCommentHandler.js"></script>
+<script src="/js/deleteBlogPost.js"></script>
+<script src="/js/editBlogPost.js"></script>
