@@ -142,7 +142,7 @@ router.get("/create/:id", async (req, res) => {
 });
 
 router.all("/login", (req, res) => {
-  // redirects if logged in
+    // redirects if logged in
     if (req.session.logged_in) {
         res.redirect("/dashboard");
         return;

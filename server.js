@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 // setup handlebars and express session
 const hbs = exphbs.create({ helpers });
 const sess = {
-    secret: "Super secret secret",
+    secret: process.env.DB_Secret,
     cookie: {
         maxAge: 1200000,
         httpOnly: true,
@@ -38,6 +38,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log("Now listening"));
-});
+sequelize.sync();
+
+app.listen(PORT, () => console.log("Now listening"));

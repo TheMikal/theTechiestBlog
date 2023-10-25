@@ -39,3 +39,5 @@ BlogPost.init(
         modelName: "blogPost",
     }
 );
+
+module.exports = BlogPost;
